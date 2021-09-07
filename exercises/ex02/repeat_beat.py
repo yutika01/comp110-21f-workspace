@@ -5,14 +5,15 @@ __author__ = "730480382"
 
 # Begin your solution here...
 
-from _typeshed import HasFileno
-
 
 beat: str = input("Insert beat: ")
 num_repeat: int = int(input("Number of times to repeat: "))
+output: str = ""
 if (num_repeat <= 0):
     print("No beat...")
 else: 
-    while (num_repeat > 0):
-        print (beat)
+    output = beat
+    while (num_repeat-1 > 0):
+        output = output + " " + beat
         num_repeat = num_repeat - 1
+    print (output)
