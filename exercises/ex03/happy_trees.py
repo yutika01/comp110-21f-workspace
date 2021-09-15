@@ -6,11 +6,12 @@ __author__ = "730480382"
 TREE: str = '\U0001F332'
 depth: int = int(input("Depth: "))
 line: int = 1
-num_print: int = 1
+num_print: int = 0
 output: str = ""
 while (line <= depth):
-    while (num_print <= line):
+    num_print = line-1
+    while (num_print < line):
         output = output + " " + TREE
         num_print = num_print + 1
+        print (output)
     line = line + 1
-print (output)
