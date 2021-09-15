@@ -8,10 +8,11 @@ depth: int = int(input("Depth: "))
 line: int = 1
 num_print: int = 0
 output: str = ""
+
 while (line <= depth):
-    num_print = line-1
+    num_print = line - 1
     while (num_print < line):
         output = output + " " + TREE
         num_print = num_print + 1
-        print (output)
+        print(output)
     line = line + 1
