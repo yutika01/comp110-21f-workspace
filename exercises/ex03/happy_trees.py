@@ -12,7 +12,7 @@ output: str = ""
 while (line <= depth):
     num_print = line - 1
     while (num_print < line):
-        output = output + " " + TREE
+        output = output + TREE
         num_print = num_print + 1
         print(output)
     line = line + 1
