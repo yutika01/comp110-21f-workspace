@@ -12,6 +12,8 @@ fail: str = "\U0001F61F"
 
 
 """Main function: contains 3 directions for quiz"""
+
+
 def main() -> None:
     greet()
     global round
@@ -30,6 +32,8 @@ def main() -> None:
 
 
 """Greet function: used at start of game"""
+
+
 def greet() -> None:
     global player
     global clover
@@ -39,6 +43,8 @@ def greet() -> None:
 
 
 """Hard version with random bonus question"""
+
+
 def hardversion() -> None:
     print(f"Welcome {player}! Let's begin.")
     global points
@@ -59,6 +65,8 @@ def hardversion() -> None:
     
 
 """Easy version of trivia quiz"""
+
+
 def easyversion(points_easy: int) -> int: 
     global player
     print(f"Welcome {player}! Let's begin.")
@@ -66,12 +74,14 @@ def easyversion(points_easy: int) -> int:
     if q1 == "3":
         points_easy += 1
         print(f"Current points: {points_easy}")
-    else: print("Incorrect")
+    else: 
+        print("Incorrect")
     q2: str = input("What was the incorrect ingredient in Rachel's thanksgiving trifle? ")
     if q2 == "Beef with peas and onions":
         points_easy += 1
         print(f"Current points: {points_easy}")
-    else: print("Incorrect")
+    else: 
+        print("Incorrect")
     q3: str = input("Who had a crush on Joshua? ")
     if q3 == "Rachel":
         points_easy += 1
@@ -80,6 +90,8 @@ def easyversion(points_easy: int) -> int:
 
 
 """End of game"""
+
+
 def end() -> None:
     global round
     global win_emoji
@@ -95,9 +107,11 @@ def end() -> None:
 
 
 """random generator for bonus question"""
+
+
 def randgen() -> None:
     global points
-    num = randint(1,4)
+    num = randint(1, 4)
     if num == 1:
         rand_question: str = input("What does Rachel think Chandler's job is? ")
         if rand_question == "A transponster":
