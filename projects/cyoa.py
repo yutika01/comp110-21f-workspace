@@ -1,7 +1,7 @@
+from random import randint
+
 """Create Your Own Adventure: FRIENDS Trivia Quiz."""
 __author__: str = "730480382"
-
-from random import randint
 
 points: int = 0
 player: str = ""
@@ -11,10 +11,8 @@ clover: str = "\U0001F340"
 fail: str = "\U0001F61F"
 
 
-"""Main function: contains 3 directions for quiz"""
-
-
 def main() -> None:
+    """Main function: contains 3 directions for quiz"""
     greet()
     global round
     global points
@@ -31,10 +29,8 @@ def main() -> None:
             round -= 1
 
 
-"""Greet function: used at start of game"""
-
-
 def greet() -> None:
+    """Greet function: used at start of game"""
     global player
     global clover
     player = input("Enter Player Name: ")
@@ -42,10 +38,8 @@ def greet() -> None:
     print(f"Enter the correct answer to get points. Good luck! {clover}")
 
 
-"""Hard version with random bonus question"""
-
-
 def hardversion() -> None:
+    """Hard version with random bonus question"""
     print(f"Welcome {player}! Let's begin.")
     global points
     q1: str = input("What is the name of the restaurant Monica was head chef at? ")
@@ -64,10 +58,8 @@ def hardversion() -> None:
     randgen()
     
 
-"""Easy version of trivia quiz"""
-
-
 def easyversion(points_easy: int) -> int: 
+    """Easy version of trivia quiz"""
     global player
     print(f"Welcome {player}! Let's begin.")
     q1: str = input("How many times was Ross divorced? ")
@@ -89,10 +81,8 @@ def easyversion(points_easy: int) -> int:
     return points_easy
 
 
-"""End of game"""
-
-
 def end() -> None:
+    """End of game"""
     global round
     global win_emoji
     global fail
@@ -106,10 +96,8 @@ def end() -> None:
         print(f"Uh oh! You may need to rewatch F.R.I.E.N.D.S {fail}")
 
 
-"""random generator for bonus question"""
-
-
 def randgen() -> None:
+    """random generator for bonus question"""
     global points
     num = randint(1, 4)
     if num == 1:
