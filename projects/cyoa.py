@@ -75,7 +75,7 @@ def end() -> None:
     global fail
     round = round - 1
     print(f"Thank you for playing. Congratulations on gaining {points} Adventure points!")
-    if points >= 2:
+    if points > 2:
         print(f"You are a true fan! {win_emoji}")
     elif points >= 1: 
         print("You are a fan, but need to brush up on your knowledge")
