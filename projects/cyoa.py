@@ -1,4 +1,4 @@
-"""Create Your Own Adventure: FRIENDS Trivia Quiz"""
+"""Create Your Own Adventure: FRIENDS Trivia Quiz."""
 __author__: str = "730480382"
 
 from random import randint
@@ -10,6 +10,8 @@ win_emoji: str = "\U0001F973"
 clover: str = "\U0001F340"
 fail: str = "\U0001F61F"
 
+
+"""Main function: contains 3 directions for quiz"""
 def main() -> None:
     greet()
     global round
@@ -24,8 +26,10 @@ def main() -> None:
             end()
         print(f"Total points: {points}")
         if (input("Do you want to play again? Type 'YES' or 'NO' ")) != "YES":
-            round-=1
+            round -= 1
 
+
+"""Greet function: used at start of game"""
 def greet() -> None:
     global player
     global clover
@@ -33,6 +37,8 @@ def greet() -> None:
     print(f"{player}, Welcome to Friends Trivia! Please answer the following questions to the best of your ability and we will tell you how big of a F.R.I.E.N.D.S fan you are!")
     print(f"Enter the correct answer to get points. Good luck! {clover}")
 
+
+"""Hard version with random bonus question"""
 def hardversion() -> None:
     print(f"Welcome {player}! Let's begin.")
     global points
@@ -51,6 +57,8 @@ def hardversion() -> None:
     print("Finally, a bonus question! This question is worth 2 points.")
     randgen()
     
+
+"""Easy version of trivia quiz"""
 def easyversion(points_easy: int) -> int: 
     global player
     print(f"Welcome {player}! Let's begin.")
@@ -70,6 +78,8 @@ def easyversion(points_easy: int) -> int:
         print(f"Current points: {points_easy}")
     return points_easy
 
+
+"""End of game"""
 def end() -> None:
     global round
     global win_emoji
@@ -83,6 +93,8 @@ def end() -> None:
     elif points < 1:
         print(f"Uh oh! You may need to rewatch F.R.I.E.N.D.S {fail}")
 
+
+"""random generator for bonus question"""
 def randgen() -> None:
     global points
     num = randint(1,4)
@@ -107,6 +119,6 @@ def randgen() -> None:
             points += 2
             print(f"Current points: {points}")
 
-__name__: str = "__main__"
+
 if __name__ == "__main__":
     main()
