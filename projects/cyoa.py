@@ -1,3 +1,6 @@
+"""Create Your Own Adventure: FRIENDS Trivia Quiz"""
+__author__: str = "730480382"
+
 from random import randint
 
 points: int = 0
