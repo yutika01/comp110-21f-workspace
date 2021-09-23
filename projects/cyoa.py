@@ -9,10 +9,10 @@ fail: str = "\U0001F61F"
 
 def main() -> None:
     greet()
-    direction: str = input("Would you like to play the hard version, easy version, or quit? Please type 1 for the hard version, 2 for the easy version, and 3 to quit: ")
     global round
     global points
     while round > 0:
+        direction: str = input("Would you like to play the hard version, easy version, or quit? Please type 1 for the hard version, 2 for the easy version, and 3 to quit: ")
         if (direction == "1"):
             hardversion()
         elif (direction == "2"):
@@ -20,10 +20,8 @@ def main() -> None:
         else:
             end()
         print(f"Total points: {points}")
-        if (input("Do you want to play again? Type 'YES' or 'NO' ")) == "YES":
-            main()
-        else: 
-            end()
+        if (input("Do you want to play again? Type 'YES' or 'NO' ")) != "YES":
+            round-=1
 
 def greet() -> None:
     global player
