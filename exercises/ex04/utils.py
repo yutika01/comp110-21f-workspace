@@ -27,6 +27,8 @@ def is_equal(list1: list[int], list2: list[int]) -> bool:
                 return True
             else:
                 i += 1
+    elif len(list1) and len(list2) == 0:
+        return False
     return False
 
 
