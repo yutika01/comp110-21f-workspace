@@ -7,12 +7,11 @@ __author__ = "730480382"
 
 def only_evens(input: list[int]) -> list[int]:
     """Return only evens in list."""
-    i: int = 0
+    newlist: list[int] = []
     for item in input:
-        if item % 2 != 0:
-            input.pop(i)
-        i += 1
-    return input
+        if item % 2 == 0:
+            newlist.append(item)
+    return newlist
 
 
 def sub(input: list[int], start: int, end: int) -> list[int]:
