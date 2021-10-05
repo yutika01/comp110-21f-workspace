@@ -11,6 +11,11 @@ def test_only_evens() -> None:
     assert only_evens([10, 15, 20]) == [10, 20]
 
 
+def test_only_evens_sub() -> None:
+    """Test based on gradescope."""
+    assert only_evens([3, 6]) == [6]
+
+
 def test_only_evens_again() -> None: 
     """Test for only_evens using two odds."""
     assert only_evens([1, 2, 3]) == [2]
