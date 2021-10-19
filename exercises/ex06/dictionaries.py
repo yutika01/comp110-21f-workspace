@@ -4,7 +4,9 @@ __author__ = "730480382"
 
 # Define your functions below
 
+
 def invert(input: dict[str, str]) -> dict[str, str]:
+    """Switch keys and values in new dictionary."""
     final: dict[str, str]
     final = {}
     for key in input:
@@ -14,7 +16,9 @@ def invert(input: dict[str, str]) -> dict[str, str]:
             final[input[key]] = key
     return final
 
+
 def favorite_color(names: dict[str, str]) -> str:
+    """Return most popular color in dictionary."""
     popular: str = ""
     for key in names:
         for second in names:
@@ -24,7 +28,9 @@ def favorite_color(names: dict[str, str]) -> str:
                 print("no")
     return popular
 
+
 def count(input: list[str]) -> dict[str, int]:
+    """Return count of each color in list."""
     final_count: dict[str, int]
     final_count = {}
     for item in input:
