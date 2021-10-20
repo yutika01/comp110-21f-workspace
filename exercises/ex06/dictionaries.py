@@ -42,5 +42,7 @@ def count(input: list[str]) -> dict[str, int]:
     final_count = {}
     for item in input:
         if item in final_count:
-            print("yes")
+            final_count[item] += 1
+        else: 
+            final_count[item] = 1
     return final_count
