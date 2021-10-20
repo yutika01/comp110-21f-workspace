@@ -2,6 +2,7 @@
 
 # TODO: Uncomment the below line when ready to write unit tests
 from exercises.ex06.dictionaries import invert, favorite_color, count
+import pytest
 
 __author__ = "730480382"
 
@@ -13,7 +14,9 @@ def test_invert() -> None:
 
 def test_invert_again() -> None:
     """Check if it gives error."""
-    assert invert({'b': 'c', 'd': 'e', 'f': 'e'}) == "KeyError"
+    with pytest.raises(KeyError):
+        my_dictionary = {'b': 'c', 'd': 'e', 'f': 'e'}
+        invert(my_dictionary)
 
 
 def test_invert_two() -> None:
