@@ -8,7 +8,7 @@ __author__ = "730480382"
 
 def test_invert() -> None:
     """Check if function inverts key and value."""
-    assert invert({'a': 'a', 'b': 'c', 'd': 'e', 'f': 'g'}) == {'a': 'a', 'c': 'd', 'f': 'e', 'g': 'f'}
+    assert invert({'a': 'a', 'b': 'c', 'd': 'e', 'f': 'g'}) == {'a': 'a', 'c': 'b', 'e': 'd', 'g': 'f'}
 
 
 def test_invert_again() -> None:
@@ -33,7 +33,7 @@ def test_favorite_color_again() -> None:
 
 def test_favorite_color_two() -> None:
     """Check if it returns favorite color."""
-    assert favorite_color({'johnson': 'blue', 'david': 'grey', 'megan': 'yellow', 'claire': 'green'}) == "blue"
+    assert favorite_color({'johnson': 'blue', 'david': 'grey', 'megan': 'yellow', 'claire': 'green'}) == 'blue'
 
 
 def test_count() -> None:
