@@ -20,12 +20,19 @@ def invert(input: dict[str, str]) -> dict[str, str]:
 def favorite_color(names: dict[str, str]) -> str:
     """Return most popular color in dictionary."""
     popular: str = ""
+    num: int = -1
+    maxcount = 0
+    count_dict: dict[str, int] = {}
     for key in names:
         for second in names:
             if key == second:
-                print("yes")
-            else:
-                print("no")
+                num += 1
+        count_dict[key] = num
+        num = -1
+    for key in count_dict:
+        if count_dict[key] < maxcount:
+            maxcount = count_dict[key]
+            popular = key
     return popular
 
 
