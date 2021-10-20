@@ -23,10 +23,10 @@ def favorite_color(names: dict[str, str]) -> str:
     maxcount: int = 0
     count_dict: dict[str, int] = {}
     for item in names:
-        if item in count_dict:
-            count_dict[item] += 1
+        if names[item] in count_dict:
+            count_dict[names[item]] += 1
         else: 
-            count_dict[item] = 1
+            count_dict[names[item]] = 1
     for item in count_dict:
         if count_dict[item] > maxcount:
             maxcount = count_dict[item]
