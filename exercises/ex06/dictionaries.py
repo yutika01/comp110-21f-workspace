@@ -30,7 +30,7 @@ def favorite_color(names: dict[str, str]) -> str:
         count_dict[key] = num
         num = -1
     for key in count_dict:
-        if count_dict[key] < maxcount:
+        if count_dict[key] > maxcount:
             maxcount = count_dict[key]
             popular = key
     return popular
