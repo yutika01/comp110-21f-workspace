@@ -8,22 +8,21 @@ from csv import DictReader
 
 
 def read_csv_rows(filename: str) -> list[dict[str, str]]:
-    """"Read the rows of a csv into a 'table'."""
+    """Read the rows of a csv into a 'table'."""
     result: list[dict[str, str]] = []
 
     # Open a handle to the data file
     file_handle = open(filename, "r", encoding="utf8")
     
-    #Prepare to read the data file as a CSV rather than just strings
+    # Prepare to read the data file as a CSV rather than just strings
     csv_reader = DictReader(file_handle)
 
     # Read each row of the CSV line-by-line
     for row in csv_reader:
         result.append(row)
 
-    #close the file when we're done, to free its resources.
+    # Close the file when we're done, to free its resources.
     file_handle.close()
-
 
     return result
 
@@ -53,14 +52,15 @@ def head(COLUMN_TABLE: dict[str, list[str]], num_rows: int) -> dict[str, list[st
     for column in COLUMN_TABLE:
         first_values: list[str] = []
         i: int = 0
+        item: list[str] = []
         while i < num_rows:
-            item = list[i]
+            item = COLUMN_TABLE{i}
             first_values.append(item)
         result[column] = first_values
     return result
 
 
-def select(COLUMN_TABLE: dict[str, list[str]], column_names:list[str]) -> dict[str, list[str]]:
+def select(COLUMN_TABLE: dict[str, list[str]], column_names: list[str]) -> dict[str, list[str]]:
     """Produce a new column-based table with only a specific subset of the original columns."""
     result: dict[str, list[str]] = {}
     for column in COLUMN_TABLE:
