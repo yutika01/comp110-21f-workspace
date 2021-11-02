@@ -54,9 +54,10 @@ def head(COLUMN_TABLE: dict[str, list[str]], num_rows: int) -> dict[str, list[st
     for key in COLUMN_TABLE:
         first_values: list[str] = []
         i: int = 0
-        item: list[str] = []
+        # item: list[str] = []
         while i < num_rows:
             first_values.append(COLUMN_TABLE[key][i])
+            i += 1
         result[key] = first_values
     return result
 
