@@ -16,10 +16,12 @@ class Simpy:
         """Initialize the values attribute of the newly constructed Simpy object to the argument passed in."""
         self.values = values
     
+    
     def __str__(self) -> str:
         """Convert a Simpy object to a str representation."""
         return f"Simpy({self.values})"
     
+
     def fill(self, value: float, num: int) -> None:
         """Fill a Simpy's values with a specific number of repeating values."""
         self.values = []
@@ -28,6 +30,7 @@ class Simpy:
             self.values.append(value)
             i += 1
     
+
     def arange(self, start: float, stop: float, step: float = 1.0) -> None:
         """Fill in the values attribute with a range of values in terms of floats."""
         assert step != 0
@@ -42,11 +45,13 @@ class Simpy:
                 self.values.append(i)
                 i = i + step
     
+
     def sum(self) -> float:
         """Compute and return the sum of all items in the values attribute."""
         sum_value = sum(self.values)
         return sum_value
     
+
     def __add__(self, rhs: Union[float, Simpy]) -> Simpy:
         """Operator overload, add Simpy values together."""
         new: Simpy = Simpy([])
@@ -69,12 +74,13 @@ class Simpy:
             assert len(rhs.values) == len(self.values)
             index: int = 0
             while index < len(rhs.values):
-                new.values.append(rhs.values[index] ** self.values[index])
+                new.values.append(self.values[index] ** rhs.values[index])
                 index += 1
         elif isinstance(rhs, float): 
             for each in self.values:
                 new.values.append(each ** rhs)
         return new
+
 
     def __eq__(self, rhs: Union[float, Simpy]) -> list[bool]:
         """Operator overload, produce a mask based on the equality of a Simpy with another Simpy or float value."""
@@ -84,6 +90,7 @@ class Simpy:
             assert len(rhs.values) == len(self.values)
             index: int = 0
             while index < len(rhs.values):
+                bool_value = False
                 if rhs.values[index] == self.values[index]:
                     bool_value = True
                 output.append(bool_value)
@@ -96,6 +103,7 @@ class Simpy:
                 output.append(bool_value)
         return output
 
+
     def __gt__(self, rhs: Union[Simpy, float]) -> list[bool]:
         """Operator overload, produce a mask based on the greater than relationship of a Simpy with another Simpy or float value."""
         output: list[bool] = []
@@ -104,7 +112,8 @@ class Simpy:
             assert len(rhs.values) == len(self.values)
             index: int = 0
             while index < len(rhs.values):
-                if rhs.values[index] > self.values[index]:
+                bool_value = False
+                if self.values[index] > rhs.values[index]:
                     bool_value = True
                 output.append(bool_value)
                 index += 1
@@ -116,8 +125,17 @@ class Simpy:
                 output.append(bool_value)
         return output
 
-    def __getitem__(self, rhs: int) -> float:
-        """Operator overload, add the subscription operator with Simpy objects."""
-        output: float = 0.0
-        # More code
-        return output
+
+    def __getitem__(self, rhs: Union[int, list[bool]]) -> Union[float, Simpy]:
+        """Operator overload, add the subscription operator and mask filtering with Simpy objects."""
+        if isinstance(rhs, int):
+            output: float = self.values[rhs]
+            return output
+        if isinstance(rhs, list):
+            index: int = 0
+            result: Simpy = Simpy([])
+            for each in rhs:
+                if each: 
+                    result.values.append(self.values[index])
+                index += 1
+            return result
